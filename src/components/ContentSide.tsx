@@ -1,4 +1,4 @@
-import { Switch, Route, useParams } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import MainPage from '../pages/MainPage';
 import ProjectPage from '../pages/ProjectPage';
 
