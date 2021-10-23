@@ -2,14 +2,18 @@ import './App.css';
 import LeftSide from './components/LeftSide';
 import ContentSide from './components/ContentSide';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Header from './components/Header';
 
 export default function App() {
   return (
-    <Router>
-      <div className="flex gap-10 p-10">
-        <LeftSide/>
-        <ContentSide/>
-      </div>
-    </Router>
+    <div style={{ height: '100vh' }}>
+      <Router>
+        <Header />
+        <div className="flex h-full">
+          <LeftSide />
+          <ContentSide />
+        </div>
+      </Router>
+    </div>
   );
 }
