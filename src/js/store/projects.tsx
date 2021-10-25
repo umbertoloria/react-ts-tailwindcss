@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 
-interface Project {
+export interface Project {
     id: number;
 }
 

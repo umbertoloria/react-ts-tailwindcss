@@ -1,41 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router";
-import store from '../js/store/projects';
+import store, { Project } from '../js/store/projects';
 
 export default function ProjectPage() {
 
-    const { projectId } = useParams<{ projectId?: string }>();
-    const [ids, setIds] = useState<number[]>();
+    const { projectId } = useParams<{ projectId: string }>();
+    const [project, setProject] = useState<Project | undefined>();
+
+    const projectIdInt = useMemo<number>(() => parseInt(projectId, 10), [projectId]);
 
     useEffect(() => {
         store.subscribe(() => {
             const projectsStore = store.getState();
-            const projIds = projectsStore.projects.map((proj) => proj.id);
-            setIds(projIds);
+            const project = projectsStore.projects.find((proj) => proj.id === projectIdInt);
+            setProject(project);
         });
-    }, []);
-
-    const action = () => {
-        store.dispatch({ type: 'addProject' });
-    };
+    }, [projectIdInt]);
 
     return (
         <div>
             <p>
                 Selected project: {projectId}
             </p>
-            <p>
-                General IDs: {ids?.join()}
-            </p>
-            <form>
-                <button
-                    type="button"
-                    onClick={action}
-                    className="p-3 font-medium bg-red-500 text-white rounded-lg"
-                >
-                    Aggiungi progetto
-                </button>
-            </form>
+            <pre>
+                {JSON.stringify(project)}
+            </pre>
         </div>
     );
 }

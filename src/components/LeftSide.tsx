@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function LeftBar() {
     return (
-        <div className="px-4 pt-1 bg-gray-500">
+        <div className="w-20 pt-1 bg-gray-500 fixed top-16 bottom-0 flex flex-col items-center">
             <Link
                 to="/"
                 className="block bg-gray-600 p-3 rounded-sm mt-4 text-gray-300 hover:bg-gray-700"
@@ -38,43 +38,3 @@ export default function LeftBar() {
         </div>
     );
 }
-
-/*
-
-interface Project {
-    id: number,
-    name: string,
-};
-
-export default function LeftSide() {
-    const projects: Project[] = [
-        { id: 10, name: 'Project 1' },
-        { id: 13, name: 'Project 2' },
-        { id: 15, name: 'Project 3' },
-        { id: 18, name: 'Project 4' },
-    ];
-    return (
-        <div className="w-80">
-            {projects.map(ProjectItem)}
-        </div>
-    );
-}
-
-function ProjectItem(project: Project) {
-    return (
-        <>
-            <Link
-                to={`/projects/${project.id}`}
-                className={classNames(
-                    'block',
-                    'mb-4',
-                    'text-gray-600',
-                    {},
-                )}
-            >
-                {project.name}
-            </Link>
-        </>
-    );
-}
-*/

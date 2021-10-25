@@ -6,13 +6,11 @@ import Header from './components/Header';
 
 export default function App() {
   return (
-    <div style={{ height: '100vh' }}>
+    <div>
       <Router>
         <Header />
-        <div className="flex h-full">
-          <LeftSide />
-          <ContentSide />
-        </div>
+        <LeftSide />
+        <ContentSide />
       </Router>
     </div>
   );
